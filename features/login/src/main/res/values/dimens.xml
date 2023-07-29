@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="tv_text_size_sign_up">19sp</dimen>
+    <dimen name="space_between_ll_blocks">15dp</dimen>
+</resources>

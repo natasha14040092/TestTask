@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="ru.nstu.koroleva.n.ui.MainFragment"
+        android:label="MainFragment">
+        <deepLink app:uri="home://main"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="ru.nstu.koroleva.n.login.ui.SignUpFragment"
+        android:label="SignUpFragment">
+        <deepLink app:uri="login://sign"/>
+    </fragment>
+
+</navigation>
