@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import ru.nstu.koroleva.n.login.R
 import ru.nstu.koroleva.n.login.presentation.SignUpViewModel
 import ru.nstu.koroleva.n.login.databinding.FragmentSignUpBinding
 
@@ -41,7 +43,27 @@ class SignUpFragment : Fragment() {
     }
 
     private fun setsOnClickListeners() {
+        with(binding){
+            tvBirthdatePickerSignUp.setOnClickListener {
+                val datePickerFragment = DatePickerDialogFragment()
+                val supportFragmentManager = requireActivity().supportFragmentManager
 
+                // определяю setFragmentResultListener
+                supportFragmentManager.setFragmentResultListener(
+                    "REQUEST_KEY",
+                    viewLifecycleOwner
+                ) { resultKey, bundle ->
+                    if (resultKey == "REQUEST_KEY") {
+                        val date = bundle.getString("SELECTED_DATE")
+                        tvBirthdatePickerSignUp.text = date
+                    }
+                }
+
+                // show
+                datePickerFragment.show(supportFragmentManager, "DatePickerFragment")
+            }
+
+        }
     }
 
     private fun setsObservers() {
