@@ -1,11 +1,15 @@
 <resources>
-    <string name="login_text">Логин</string>
-    <string name="login_text_hint">Введите логин…</string>
+    <string name="sign_up_title_text">Регистрация аккаунта</string>
+    <string name="name_text">Имя</string>
+    <string name="name_text_hint">Введите имя…</string>
+    <string name="surname_text">Фамилия</string>
+    <string name="surname_text_hint">Введите фамилию…</string>
+    <string name="birthdate_text">Дата рождения</string>
+    <string name="birthdate_text_hint">Выберите дату рождения…</string>
     <string name="password_text">Пароль</string>
     <string name="password_text_hint">Введите пароль…</string>
-    <string name="b_sign_up_text">Регистрация</string>
-    <string name="sign_up_text">Регистрация аккаунта</string>
     <string name="repeat_password_text">Повторите пароль</string>
+    <string name="b_sign_up_text">Регистрация</string>
 
     <string name="error_message_login_empty">логин не должен быть пустым</string>
     <string name="error_message_login_short">длина логина меньше 5 символов</string>
