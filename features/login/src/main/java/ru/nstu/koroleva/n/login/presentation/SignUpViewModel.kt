@@ -4,10 +4,15 @@ import androidx.core.net.toUri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
+import ru.nstu.koroleva.n.login.domain.usecase.SetUserDataUseCase
 import ru.nstu.koroleva.n.navigation.HOME_URI
 
-class SignUpViewModel : ViewModel() {
+class SignUpViewModel(
+    private val setUserDataUseCase: SetUserDataUseCase
+) : ViewModel() {
+
     private companion object {
         const val EMPTY_TEXT = ""
     }
@@ -141,6 +146,14 @@ class SignUpViewModel : ViewModel() {
         val homeUri = HOME_URI.toUri()
         navController.navigate(homeUri)
     }
+}
 
-
+class SignUpViewModelFactory(private val setUserDataUseCase: SetUserDataUseCase) :
+    ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(SignUpViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST") return SignUpViewModel(setUserDataUseCase) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
+    }
 }

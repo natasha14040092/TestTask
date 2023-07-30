@@ -13,10 +13,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import ru.nstu.koroleva.n.login.R
+import ru.nstu.koroleva.n.login.data.datasource.UserDataSource
+import ru.nstu.koroleva.n.login.data.repository.UserDataRepositoryImpl
 import ru.nstu.koroleva.n.login.databinding.FragmentSignUpBinding
+import ru.nstu.koroleva.n.login.domain.usecase.SetUserDataUseCase
 import ru.nstu.koroleva.n.login.presentation.SignUpErrorState
 import ru.nstu.koroleva.n.login.presentation.SignUpState
 import ru.nstu.koroleva.n.login.presentation.SignUpViewModel
+import ru.nstu.koroleva.n.login.presentation.SignUpViewModelFactory
 
 
 class SignUpFragment : Fragment() {
@@ -45,7 +49,11 @@ class SignUpFragment : Fragment() {
     }
 
     private fun initViewModel() {
-        viewModel = ViewModelProvider(this)[SignUpViewModel::class.java]
+        val userDataSource = UserDataSource()
+        val userDataRepository = UserDataRepositoryImpl(userDataSource)
+        val setUserDataUseCase = SetUserDataUseCase(userDataRepository)
+        val viewModelFactory = SignUpViewModelFactory(setUserDataUseCase)
+        viewModel = ViewModelProvider(this, viewModelFactory)[SignUpViewModel::class.java]
     }
 
     private fun setsOnClickListeners() {
