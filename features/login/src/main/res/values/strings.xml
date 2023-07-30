@@ -10,12 +10,12 @@
     <string name="password_text_hint">Введите пароль…</string>
     <string name="repeat_password_text">Повторите пароль</string>
     <string name="b_sign_up_text">Регистрация</string>
-
-    <string name="error_message_login_empty">логин не должен быть пустым</string>
-    <string name="error_message_login_short">длина логина меньше 5 символов</string>
-    <string name="error_message_login_contains_special_symbol">логин содержит один или несколько спец. символов</string>
-    <string name="error_message_login_exist">логин уже занят</string>
-    <string name="error_message_password_empty">пароль не должен быть пустым</string>
+    <string name="error_message_name_short">поле должно содержать не менее 2 букв</string>
+    <string name="error_message_name_contains_special_symbol">допустимы только буквы</string>
     <string name="error_message_password_short">"длина пароля меньше 8 символов"</string>
+    <string name="error_message_without_special_symbol">в пароле должен быть хотя бы
+        один из символов: «! @ # $ % ^ &amp; * ( ) — _ + = ; : , ./ ? | ` ~ [ ] { }»</string>
+    <string name="error_message_without_digit">"в пароле должна быть хотя бы 1 цифра"</string>
+    <string name="error_message_without_uppercase">"в пароле должна быть хотя бы 1 буква верхнего регистра"</string>
     <string name="error_message_passwords_dont_match">"пароли не совпадают"</string>
 </resources>

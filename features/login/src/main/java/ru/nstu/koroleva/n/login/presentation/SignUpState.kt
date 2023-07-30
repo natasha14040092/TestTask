@@ -1,14 +1,18 @@
 package ru.nstu.koroleva.n.login.presentation
 
 sealed class SignUpState {
-    //текущие состояние экрана
+    //текущее состояние экрана
     data class Content(
-        val loginText: String,
+        val nameText: String,
+        val surnameText: String,
+        val birthdateText: String,
         val passwordText: String,
         val repeatPasswordText: String,
-        val loginError: SignUpLoginErrorState,
-        val passwordError: SignUpPasswordErrorState,
-        val repeatPasswordError: SignUpRepeatPasswordErrorState
+        val signUpButtonClick: Boolean,
+        val nameError: SignUpErrorState,
+        val surnameError: SignUpErrorState,
+        val passwordError: SignUpErrorState,
+        val repeatPasswordError: SignUpErrorState
     ) : SignUpState()
 
     object Ok : SignUpState()

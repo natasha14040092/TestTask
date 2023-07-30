@@ -11,4 +11,5 @@
     <color name="black_text_700">#100E0E</color>
     <color name="orange_button_500">#FFC411</color>
     <color name="orange_button_700">#FF5722</color>
+    <color name="gray_button_500">#B0B1B1B1</color>
 </resources>
