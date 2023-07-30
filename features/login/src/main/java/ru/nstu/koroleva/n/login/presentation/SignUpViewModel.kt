@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
 import ru.nstu.koroleva.n.navigation.HOME_URI
-import java.lang.ref.SoftReference
 
 class SignUpViewModel : ViewModel() {
     private companion object {
@@ -68,7 +67,7 @@ class SignUpViewModel : ViewModel() {
         validateNameFields()
         validatePassword()
         validateRepeatPassword()
-
+        changeStateToOk()
     }
 
     private fun validateNameFields() {
@@ -116,6 +115,17 @@ class SignUpViewModel : ViewModel() {
             else -> _state.value = currentState.copy(repeatPasswordError = SignUpErrorState.NoError)
         }
     }
+
+    private fun changeStateToOk() {
+        val currentState = _state.value as? SignUpState.Content ?: return
+        if (currentState.nameError is SignUpErrorState.NoError &&
+            currentState.surnameError is SignUpErrorState.NoError &&
+            currentState.passwordError is SignUpErrorState.NoError &&
+            currentState.repeatPasswordError is SignUpErrorState.NoError
+        )
+            _state.value = SignUpState.Ok
+    }
+
 
     fun onStateOk(navController: NavController) {
         createUser()
