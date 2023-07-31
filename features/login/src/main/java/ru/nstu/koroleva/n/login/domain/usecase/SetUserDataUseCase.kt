@@ -6,7 +6,5 @@ import ru.nstu.koroleva.n.login.domain.repository.UserDataRepository
 class SetUserDataUseCase(
     private val userDataRepository: UserDataRepository
 ) {
-    operator fun invoke(user: UserEntity) {
-        userDataRepository.setUserData(user)
-    }
+    operator fun invoke(user: UserEntity) = userDataRepository.setUserData(user)
 }

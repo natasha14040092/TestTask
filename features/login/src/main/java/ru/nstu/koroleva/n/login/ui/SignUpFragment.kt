@@ -154,7 +154,7 @@ class SignUpFragment : Fragment() {
                 showRepeatPasswordError(state.repeatPasswordError)
             }
 
-            is SignUpState.Ok -> viewModel.onStateOk(findNavController())
+            is SignUpState.Ok -> viewModel.goToMainScreen(findNavController())
         }
     }
 

@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
+import ru.nstu.koroleva.n.login.domain.entity.UserEntity
 import ru.nstu.koroleva.n.login.domain.usecase.SetUserDataUseCase
 import ru.nstu.koroleva.n.navigation.HOME_URI
 
@@ -72,7 +73,7 @@ class SignUpViewModel(
         validateNameFields()
         validatePassword()
         validateRepeatPassword()
-        changeStateToOk()
+        checkErrors()
     }
 
     private fun validateNameFields() {
@@ -121,28 +122,31 @@ class SignUpViewModel(
         }
     }
 
-    private fun changeStateToOk() {
+    private fun checkErrors() {
         val currentState = _state.value as? SignUpState.Content ?: return
+
         if (currentState.nameError is SignUpErrorState.NoError &&
             currentState.surnameError is SignUpErrorState.NoError &&
             currentState.passwordError is SignUpErrorState.NoError &&
             currentState.repeatPasswordError is SignUpErrorState.NoError
-        )
+        ) {
+            saveUserInfo(currentState)
             _state.value = SignUpState.Ok
+        }
+    }
+
+    private fun saveUserInfo(currentState: SignUpState.Content) {
+        val userEntity = UserEntity(
+            currentState.nameText,
+            currentState.surnameText,
+            currentState.birthdateText,
+            currentState.passwordText
+        )
+        setUserDataUseCase(userEntity)
     }
 
 
-    fun onStateOk(navController: NavController) {
-        createUser()
-        goToMainScreen(navController)
-    }
-
-    private fun createUser() {
-        //передаем инфу в shared preferences
-        //TODO
-    }
-
-    private fun goToMainScreen(navController: NavController) {
+    fun goToMainScreen(navController: NavController) {
         val homeUri = HOME_URI.toUri()
         navController.navigate(homeUri)
     }
