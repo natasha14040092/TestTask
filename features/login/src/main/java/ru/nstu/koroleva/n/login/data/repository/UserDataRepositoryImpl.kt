@@ -8,6 +8,6 @@ class UserDataRepositoryImpl(
     private val userDataSource: UserDataSource
 ) : UserDataRepository {
     override fun setUserData(user: UserEntity) {
-        //TODO("Not yet implemented")
+        userDataSource.setUser(user)
     }
 }

@@ -56,4 +56,5 @@ dependencies {
 
     implementation project(":component:resources")
     implementation project(":shared:navigation")
+    implementation project(":data:preferences")
 }

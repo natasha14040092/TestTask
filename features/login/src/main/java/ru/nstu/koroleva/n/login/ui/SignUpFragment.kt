@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import ru.nstu.koroleva.n.login.R
-import ru.nstu.koroleva.n.login.data.datasource.UserDataSource
+import ru.nstu.koroleva.n.login.data.datasource.UserDataSourceImpl
 import ru.nstu.koroleva.n.login.data.repository.UserDataRepositoryImpl
 import ru.nstu.koroleva.n.login.databinding.FragmentSignUpBinding
 import ru.nstu.koroleva.n.login.domain.usecase.SetUserDataUseCase
@@ -21,6 +21,7 @@ import ru.nstu.koroleva.n.login.presentation.SignUpErrorState
 import ru.nstu.koroleva.n.login.presentation.SignUpState
 import ru.nstu.koroleva.n.login.presentation.SignUpViewModel
 import ru.nstu.koroleva.n.login.presentation.SignUpViewModelFactory
+import ru.nstu.koroleva.n.preferences.UserSharedPreferencesProvider
 
 
 class SignUpFragment : Fragment() {
@@ -49,11 +50,16 @@ class SignUpFragment : Fragment() {
     }
 
     private fun initViewModel() {
-        val userDataSource = UserDataSource()
-        val userDataRepository = UserDataRepositoryImpl(userDataSource)
-        val setUserDataUseCase = SetUserDataUseCase(userDataRepository)
+        val setUserDataUseCase =  initUseCase()
         val viewModelFactory = SignUpViewModelFactory(setUserDataUseCase)
         viewModel = ViewModelProvider(this, viewModelFactory)[SignUpViewModel::class.java]
+    }
+
+    private fun initUseCase() : SetUserDataUseCase  {
+        val userSharedPreferencesProvider = UserSharedPreferencesProvider.getInstance(requireContext())
+        val userDataSource = UserDataSourceImpl(userSharedPreferencesProvider)
+        val userDataRepository = UserDataRepositoryImpl(userDataSource)
+        return SetUserDataUseCase(userDataRepository)
     }
 
     private fun setsOnClickListeners() {

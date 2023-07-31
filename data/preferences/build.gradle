@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'ru.nstu.koroleva.n.home'
+    namespace 'ru.nstu.koroleva.n.preferencies'
     compileSdk 32
 
     defaultConfig {
@@ -28,31 +28,12 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
-    buildFeatures {
-        viewBinding true
-    }
 }
 
 dependencies {
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-
-    // Lifecycle
-    def lifecycleVersion = "2.4.1"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
-
-    // Navigation Components
-    def navVersion = "2.4.2"
-    implementation "androidx.navigation:navigation-fragment-ktx:$navVersion"
-    implementation "androidx.navigation:navigation-ui-ktx:$navVersion"
 
     implementation project(":component:resources")
-    implementation project(":shared:navigation")
-    implementation project(":data:preferences")
 }
