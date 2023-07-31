@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -154,7 +155,10 @@ class SignUpFragment : Fragment() {
                 showRepeatPasswordError(state.repeatPasswordError)
             }
 
-            is SignUpState.Ok -> viewModel.goToMainScreen(findNavController())
+            is SignUpState.Ok -> {
+                Toast.makeText(context, getString(R.string.sign_up_success), Toast.LENGTH_SHORT).show()
+                viewModel.goToMainScreen(findNavController())
+            }
         }
     }
 

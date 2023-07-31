@@ -15,7 +15,8 @@
     <string name="error_message_password_short">"длина пароля меньше 8 символов"</string>
     <string name="error_message_without_special_symbol">в пароле должен быть хотя бы
         один из символов: «! @ # $ % ^ &amp; * ( ) — _ + = ; : , ./ ? | ` ~ [ ] { }»</string>
-    <string name="error_message_without_digit">"в пароле должна быть хотя бы 1 цифра"</string>
-    <string name="error_message_without_uppercase">"в пароле должна быть хотя бы 1 буква верхнего регистра"</string>
-    <string name="error_message_passwords_dont_match">"пароли не совпадают"</string>
+    <string name="error_message_without_digit">в пароле должна быть хотя бы 1 цифра</string>
+    <string name="error_message_without_uppercase">в пароле должна быть хотя бы 1 буква верхнего регистра</string>
+    <string name="error_message_passwords_dont_match">пароли не совпадаю"</string>
+    <string name="sign_up_success">Регистрация успешна</string>
 </resources>
