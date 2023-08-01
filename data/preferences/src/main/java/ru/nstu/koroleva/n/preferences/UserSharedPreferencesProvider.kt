@@ -27,12 +27,6 @@ class UserSharedPreferencesProvider(context: Context) {
     private val sharedPreferences =
         context.getSharedPreferences(USER_PREFERENCES, Context.MODE_PRIVATE)
 
-//TODO
-
-//    init {
-//        sharedPreferences.edit().clear().apply()
-//    }
-
     fun putUserInfo(userModel: UserModel) {
         sharedPreferences.edit()
             .putString(NAME, userModel.name)

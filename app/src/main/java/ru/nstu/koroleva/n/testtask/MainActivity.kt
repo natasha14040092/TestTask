@@ -13,7 +13,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        //TODO
         val userSharedPreferencesProvider = UserSharedPreferencesProvider.getInstance(this)
         if (userSharedPreferencesProvider.getSignUpInfo()) {
             Toast.makeText(this, getString(R.string.sign_in_success), Toast.LENGTH_SHORT).show()
