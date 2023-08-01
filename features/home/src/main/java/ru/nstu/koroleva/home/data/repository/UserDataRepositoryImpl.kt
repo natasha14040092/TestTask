@@ -8,7 +8,6 @@ class UserDataRepositoryImpl(
     private val userDataSource: UserDataSource
 ) : UserDataRepository {
 
-    override fun getUserData(): UserEntity {
-        return userDataSource.getUser()
-    }
+    override fun getUserData(): UserEntity = userDataSource.getUser()
+
 }

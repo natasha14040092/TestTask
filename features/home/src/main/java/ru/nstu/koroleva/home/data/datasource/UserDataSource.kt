@@ -4,4 +4,6 @@ import ru.nstu.koroleva.home.domain.entity.UserEntity
 
 interface UserDataSource {
     fun getUser() : UserEntity
+
+    fun clearUserInfo()
 }
