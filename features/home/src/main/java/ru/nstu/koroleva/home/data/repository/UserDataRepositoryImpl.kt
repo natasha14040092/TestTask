@@ -7,7 +7,7 @@ import ru.nstu.koroleva.home.domain.repository.UserDataRepository
 class UserDataRepositoryImpl(
     private val userDataSource: UserDataSource
 ) : UserDataRepository {
-
     override fun getUserData(): UserEntity = userDataSource.getUser()
 
+    override fun clearUserData() = userDataSource.clearUserInfo()
 }

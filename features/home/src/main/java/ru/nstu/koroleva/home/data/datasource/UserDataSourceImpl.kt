@@ -10,7 +10,7 @@ class UserDataSourceImpl(
     override fun getUser(): UserEntity =
         userSharedPreferencesProvider.getUserInfo().toEntity()
 
-    override fun clearUserInfo() {
+    override fun clearUserInfo() =
         userSharedPreferencesProvider.clearUserInfo()
-    }
+
 }
