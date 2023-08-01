@@ -6,8 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import ru.nstu.koroleva.home.data.datasource.UserDataSourceImpl
 import ru.nstu.koroleva.home.data.repository.UserDataRepositoryImpl
+import ru.nstu.koroleva.home.domain.repository.UserDataRepository
+import ru.nstu.koroleva.home.domain.usecase.ClearUserDataUseCase
 import ru.nstu.koroleva.home.domain.usecase.GetUserDataUseCase
 import ru.nstu.koroleva.home.presentation.HomeViewModel
 import ru.nstu.koroleva.home.presentation.HomeViewModelFactory
@@ -38,17 +41,19 @@ class HomeFragment : Fragment() {
     }
 
     private fun initViewModel() {
-        val getUserDataUseCase = initCase()
-        val viewModelFactory = HomeViewModelFactory(getUserDataUseCase)
+        val userDataRepository = initRepository()
+        val viewModelFactory = HomeViewModelFactory(
+            GetUserDataUseCase(userDataRepository),
+            ClearUserDataUseCase(userDataRepository)
+        )
         viewModel = ViewModelProvider(this, viewModelFactory)[HomeViewModel::class.java]
     }
 
-    private fun initCase(): GetUserDataUseCase {
+    private fun initRepository(): UserDataRepository {
         val userSharedPreferencesProvider =
             UserSharedPreferencesProvider.getInstance(requireContext())
         val userDataSource = UserDataSourceImpl(userSharedPreferencesProvider)
-        val userDataRepository = UserDataRepositoryImpl(userDataSource)
-        return GetUserDataUseCase(userDataRepository)
+        return UserDataRepositoryImpl(userDataSource)
     }
 
     private fun showUserName() {
@@ -64,7 +69,7 @@ class HomeFragment : Fragment() {
             }
 
             ibLogOut.setOnClickListener {
-                viewModel.logOut()
+                viewModel.logOut(findNavController())
             }
         }
 
