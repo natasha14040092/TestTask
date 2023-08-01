@@ -70,11 +70,6 @@ class SignUpFragment : Fragment() {
                 viewModel.changeSignUpButtonState()
             }
 
-            tvBirthdatePickerSignUp.doOnTextChanged { text, _, _, _ ->
-                viewModel.setBirthdateText(text.toString())
-                viewModel.changeSignUpButtonState()
-            }
-
             etPasswordSignUp.doOnTextChanged { text, _, _, _ ->
                 viewModel.setPasswordText(text.toString())
                 viewModel.changeSignUpButtonState()
@@ -86,8 +81,7 @@ class SignUpFragment : Fragment() {
             }
 
             tvBirthdatePickerSignUp.setOnClickListener {
-                showDatePicker()
-                viewModel.changeSignUpButtonState()
+                viewModel.showDatePicker(requireActivity().supportFragmentManager, viewLifecycleOwner)
             }
 
             ibShowPassword.setOnClickListener {
@@ -102,22 +96,6 @@ class SignUpFragment : Fragment() {
                 viewModel.onClickSignUpButton()
             }
         }
-    }
-
-    private fun showDatePicker() {
-        val datePickerFragment = DatePickerDialogFragment()
-        val supportFragmentManager = requireActivity().supportFragmentManager
-
-        supportFragmentManager.setFragmentResultListener(
-            "REQUEST_KEY", viewLifecycleOwner
-        ) { resultKey, bundle ->
-            if (resultKey == "REQUEST_KEY") {
-                val date = bundle.getString("SELECTED_DATE")
-                binding.tvBirthdatePickerSignUp.text = date
-            }
-        }
-
-        datePickerFragment.show(supportFragmentManager, "DatePickerFragment")
     }
 
     private fun showPassword(button: ImageButton, field: EditText) {
@@ -143,6 +121,7 @@ class SignUpFragment : Fragment() {
     private fun onChangeState(state: SignUpState) {
         when (state) {
             is SignUpState.Content -> {
+                showDate(state.birthdateText)
                 changeClickSignUpButton(state.signUpButtonClick)
                 showNameError(state.nameError, binding.etNameSignUp)
                 showNameError(state.surnameError, binding.etSurnameSignUp)
@@ -155,6 +134,10 @@ class SignUpFragment : Fragment() {
                 viewModel.goToHomeScreen(findNavController())
             }
         }
+    }
+
+    private fun showDate(date: String) {
+        binding.tvBirthdatePickerSignUp.text = date
     }
 
     private fun changeClickSignUpButton(state: Boolean) {

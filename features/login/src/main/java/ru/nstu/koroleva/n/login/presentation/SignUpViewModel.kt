@@ -1,6 +1,8 @@
 package ru.nstu.koroleva.n.login.presentation
 
 import androidx.core.net.toUri
+import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import ru.nstu.koroleva.n.login.domain.entity.UserEntity
 import ru.nstu.koroleva.n.login.domain.usecase.SetUserDataUseCase
+import ru.nstu.koroleva.n.login.ui.DatePickerDialogFragment
 import ru.nstu.koroleva.n.navigation.HOME_URI
 
 class SignUpViewModel(
@@ -16,6 +19,8 @@ class SignUpViewModel(
 
     private companion object {
         const val EMPTY_TEXT = ""
+        const val REQUEST_KEY = "REQUEST_KEY"
+        const val SELECTED_DATE = "SELECTED_DATE"
     }
 
     private val _state = MutableLiveData<SignUpState>()
@@ -59,6 +64,24 @@ class SignUpViewModel(
     fun setRepeatPasswordText(text: String) {
         val currentState = _state.value as? SignUpState.Content ?: return
         _state.value = currentState.copy(repeatPasswordText = text)
+    }
+
+    fun showDatePicker(supportFragmentManager: FragmentManager, viewLifecycleOwner: LifecycleOwner) {
+        val datePickerFragment = DatePickerDialogFragment()
+
+        supportFragmentManager.setFragmentResultListener(
+            REQUEST_KEY, viewLifecycleOwner
+        ) { resultKey, bundle ->
+            if (resultKey == REQUEST_KEY) {
+                val date = bundle.getString(SELECTED_DATE)
+                if (date != null) {
+                    setBirthdateText(date)
+                    changeSignUpButtonState()
+                }
+            }
+        }
+
+        datePickerFragment.show(supportFragmentManager, "DatePickerFragment")
     }
 
     fun changeSignUpButtonState() {
