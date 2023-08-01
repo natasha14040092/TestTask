@@ -27,10 +27,11 @@ class UserSharedPreferencesProvider(context: Context) {
     private val sharedPreferences =
         context.getSharedPreferences(USER_PREFERENCES, Context.MODE_PRIVATE)
 
-////TODO
-//    init {
-//        sharedPreferences.edit().clear().apply()
-//    }
+//TODO
+
+    init {
+        sharedPreferences.edit().clear().apply()
+    }
 
     fun putUserInfo(userModel: UserModel) {
         sharedPreferences.edit()
@@ -54,4 +55,18 @@ class UserSharedPreferencesProvider(context: Context) {
     fun getSignUpInfo(): Boolean {
         return sharedPreferences.getBoolean(SIGN_UP, false)
     }
+
+    fun clearUserInfo() {
+        sharedPreferences.edit().clear().apply()
+    }
+
+//Todo
+
+//    fun putUserName(name: String) {
+//        sharedPreferences.edit().putString(NAME, name).apply()
+//    }
+//
+//    fun putUserSurname(surname: String) {
+//        sharedPreferences.edit().putString(SURNAME, surname).apply()
+//    }
 }

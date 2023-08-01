@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="ru.nstu.koroleva.n.ui.MainFragment"
+        android:name="ru.nstu.koroleva.home.ui.HomeFragment"
         android:label="MainFragment">
         <deepLink app:uri="home://main"/>
     </fragment>

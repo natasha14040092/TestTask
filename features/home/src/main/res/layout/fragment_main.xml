@@ -4,19 +4,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ru.nstu.koroleva.n.ui.MainFragment" >
+    tools:context="ru.nstu.koroleva.home.ui.HomeFragment" >
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:fontFamily="@font/montserrat_semibold"
-        android:text="@string/tv_title_main_screen"
-        android:textColor="@color/black_text_700"
-        android:textSize="30sp"
+        android:layout_marginTop="32dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="@string/tv_title_main_screen"
+                android:textColor="@color/black_text_700"
+                android:textSize="30sp" />
+
+            <ImageButton
+                android:id="@+id/ibLogOut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                android:contentDescription="Log out"
+                android:minHeight="48dp"
+                android:src="@drawable/exit_door"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvGreeting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/welcome_text"
+            android:textColor="@color/black_text_700"
+            android:textSize="19sp" />
+
+        <Button
+            android:id="@+id/bGreeting"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="@color/orange_button_500"
+            android:clickable="true"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/greeting_button_text"
+            android:textAllCaps="false"
+            android:textSize="17sp"
+            app:cornerRadius="30dp"
+            app:rippleColor="@color/orange_button_700" />
+
+        <TextView
+            android:id="@+id/tvDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/instructions_text"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
