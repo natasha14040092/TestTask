@@ -7,6 +7,5 @@ import ru.nstu.koroleva.n.preferences.UserSharedPreferencesProvider
 class UserDataSourceImpl(
     private val userSharedPreferencesProvider: UserSharedPreferencesProvider
 ) : UserDataSource {
-
     override fun setUser(user: UserEntity) = userSharedPreferencesProvider.putUserInfo(user.toModel())
 }
