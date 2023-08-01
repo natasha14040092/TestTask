@@ -6,8 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import ru.nstu.koroleva.home.presentation.HomeViewModel
-import ru.nstu.koroleva.n.home.R
-import ru.nstu.koroleva.n.home.databinding.FragmentMainBinding
 import ru.nstu.koroleva.n.home.databinding.FragmentUserInfoDialogBinding
 
 class UserInfoDialogFragment(private val viewModel: HomeViewModel) : Fragment() {

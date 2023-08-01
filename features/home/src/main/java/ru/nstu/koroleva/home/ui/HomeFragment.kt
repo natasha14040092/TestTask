@@ -12,12 +12,12 @@ import ru.nstu.koroleva.home.domain.usecase.GetUserDataUseCase
 import ru.nstu.koroleva.home.presentation.HomeViewModel
 import ru.nstu.koroleva.home.presentation.HomeViewModelFactory
 import ru.nstu.koroleva.n.home.R
-import ru.nstu.koroleva.n.home.databinding.FragmentMainBinding
+import ru.nstu.koroleva.n.home.databinding.FragmentHomeBinding
 import ru.nstu.koroleva.n.preferences.UserSharedPreferencesProvider
 
 class HomeFragment : Fragment() {
-    private var _binding: FragmentMainBinding? = null
-    private val binding: FragmentMainBinding get() = _binding!!
+    private var _binding: FragmentHomeBinding? = null
+    private val binding: FragmentHomeBinding get() = _binding!!
 
     private lateinit var viewModel: HomeViewModel
 
@@ -25,7 +25,7 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentMainBinding.inflate(inflater, container, false)
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -66,7 +66,6 @@ class HomeFragment : Fragment() {
             ibLogOut.setOnClickListener {
                 viewModel.logOut()
             }
-
         }
 
 
