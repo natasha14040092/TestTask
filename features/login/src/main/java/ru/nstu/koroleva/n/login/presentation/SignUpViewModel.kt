@@ -169,6 +169,7 @@ class SignUpViewModel(
     }
 
     fun goToHomeScreen(navController: NavController) {
+        navController.popBackStack()
         navController.navigate(HOME_URI.toUri())
     }
 }

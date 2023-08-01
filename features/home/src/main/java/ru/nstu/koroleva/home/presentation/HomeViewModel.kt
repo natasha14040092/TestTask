@@ -32,11 +32,11 @@ class HomeViewModel(
 
     fun openUserInfoDialog() {
         _state.value = HomeState.Dialog(getUserDataUseCase())
-
     }
 
     fun logOut(navController: NavController) {
         clearUserDataUseCase()
+        navController.popBackStack()
         navController.navigate(LOGIN_URI.toUri())
     }
 }
