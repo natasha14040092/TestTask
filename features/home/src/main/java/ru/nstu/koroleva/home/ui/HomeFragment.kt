@@ -12,6 +12,7 @@ import ru.nstu.koroleva.home.data.repository.UserDataRepositoryImpl
 import ru.nstu.koroleva.home.domain.repository.UserDataRepository
 import ru.nstu.koroleva.home.domain.usecase.ClearUserDataUseCase
 import ru.nstu.koroleva.home.domain.usecase.GetUserDataUseCase
+import ru.nstu.koroleva.home.presentation.HomeState
 import ru.nstu.koroleva.home.presentation.HomeViewModel
 import ru.nstu.koroleva.home.presentation.HomeViewModelFactory
 import ru.nstu.koroleva.n.home.R
@@ -25,8 +26,7 @@ class HomeFragment : Fragment() {
     private lateinit var viewModel: HomeViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
@@ -35,7 +35,6 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViewModel()
-        showUserName()
         setsOnClickListeners()
         setsObservers()
     }
@@ -43,8 +42,7 @@ class HomeFragment : Fragment() {
     private fun initViewModel() {
         val userDataRepository = initRepository()
         val viewModelFactory = HomeViewModelFactory(
-            GetUserDataUseCase(userDataRepository),
-            ClearUserDataUseCase(userDataRepository)
+            GetUserDataUseCase(userDataRepository), ClearUserDataUseCase(userDataRepository)
         )
         viewModel = ViewModelProvider(this, viewModelFactory)[HomeViewModel::class.java]
     }
@@ -65,19 +63,23 @@ class HomeFragment : Fragment() {
     private fun setsOnClickListeners() {
         with(binding) {
             bGreeting.setOnClickListener {
-                viewModel.openUserInfoDialog()
+                viewModel.openUserInfoDialog(
+                    requireActivity().supportFragmentManager
+                )
             }
 
             ibLogOut.setOnClickListener {
                 viewModel.logOut(findNavController())
             }
         }
-
-
     }
 
     private fun setsObservers() {
-
+        viewModel.state.observe(viewLifecycleOwner) {
+            if (it is HomeState.Content) {
+                showUserName()
+            }
+        }
     }
 
     override fun onDestroyView() {

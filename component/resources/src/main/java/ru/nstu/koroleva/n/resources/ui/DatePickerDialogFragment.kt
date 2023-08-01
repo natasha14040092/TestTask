@@ -1,4 +1,4 @@
-package ru.nstu.koroleva.n.login.ui
+package ru.nstu.koroleva.n.resources.ui
 
 import android.app.DatePickerDialog
 import android.app.Dialog
@@ -10,6 +10,9 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class DatePickerDialogFragment : DialogFragment(), DatePickerDialog.OnDateSetListener {
+    companion object {
+        const val TAG = "DatePickerFragment"
+    }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val calendar = Calendar.getInstance()

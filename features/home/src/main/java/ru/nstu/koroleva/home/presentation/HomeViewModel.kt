@@ -1,13 +1,12 @@
 package ru.nstu.koroleva.home.presentation
 
 import androidx.core.net.toUri
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.*
 import androidx.navigation.NavController
 import ru.nstu.koroleva.home.domain.usecase.ClearUserDataUseCase
 import ru.nstu.koroleva.home.domain.usecase.GetUserDataUseCase
+import ru.nstu.koroleva.home.ui.UserInfoDialogFragment
 import ru.nstu.koroleva.n.navigation.LOGIN_URI
 
 class HomeViewModel(
@@ -22,6 +21,10 @@ class HomeViewModel(
     val state: LiveData<HomeState> get() = _state
 
     init {
+        changeStateToContent()
+    }
+
+    fun changeStateToContent() {
         _state.value = HomeState.Content(getUserDataUseCase().name)
     }
 
@@ -30,14 +33,17 @@ class HomeViewModel(
         return currentState.userName
     }
 
-    fun openUserInfoDialog() {
-        _state.value = HomeState.Dialog(getUserDataUseCase())
-    }
-
     fun logOut(navController: NavController) {
         clearUserDataUseCase()
         navController.popBackStack()
         navController.navigate(LOGIN_URI.toUri())
+    }
+
+    fun openUserInfoDialog(
+        supportFragmentManager: FragmentManager
+    ) {
+            _state.value = HomeState.Dialog(getUserDataUseCase())
+            UserInfoDialogFragment(this).show(supportFragmentManager, UserInfoDialogFragment.TAG)
     }
 }
 

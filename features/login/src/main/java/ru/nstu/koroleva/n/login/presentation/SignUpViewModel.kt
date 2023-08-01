@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import ru.nstu.koroleva.n.login.domain.entity.UserEntity
 import ru.nstu.koroleva.n.login.domain.usecase.SetUserDataUseCase
-import ru.nstu.koroleva.n.login.ui.DatePickerDialogFragment
+import ru.nstu.koroleva.n.resources.ui.DatePickerDialogFragment
 import ru.nstu.koroleva.n.navigation.HOME_URI
 
 class SignUpViewModel(
@@ -81,7 +81,7 @@ class SignUpViewModel(
             }
         }
 
-        datePickerFragment.show(supportFragmentManager, "DatePickerFragment")
+        datePickerFragment.show(supportFragmentManager, DatePickerDialogFragment.TAG)
     }
 
     fun changeSignUpButtonState() {

@@ -1,14 +1,19 @@
 package ru.nstu.koroleva.home.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.DialogFragment
+import ru.nstu.koroleva.home.presentation.HomeState
 import ru.nstu.koroleva.home.presentation.HomeViewModel
 import ru.nstu.koroleva.n.home.databinding.FragmentUserInfoDialogBinding
 
-class UserInfoDialogFragment(private val viewModel: HomeViewModel) : Fragment() {
+class UserInfoDialogFragment(private val viewModel: HomeViewModel) : DialogFragment() {
+    companion object {
+        const val TAG = "UserInfoDialogFragment"
+    }
+
     private var _binding: FragmentUserInfoDialogBinding? = null
     private val binding: FragmentUserInfoDialogBinding get() = _binding!!
 
@@ -17,6 +22,37 @@ class UserInfoDialogFragment(private val viewModel: HomeViewModel) : Fragment() 
     ): View? {
         _binding = FragmentUserInfoDialogBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        showsDialogContent()
+        setsOnClickListeners()
+        setsObserves()
+    }
+
+    private fun setsOnClickListeners() {
+
+    }
+
+    private fun setsObserves() {
+
+    }
+
+    private fun showsDialogContent() {
+        val currentState = viewModel.state.value as? HomeState.Dialog ?: return
+        with(binding) {
+            etName.setText(currentState.userEntity.name)
+            etSurname.setText(currentState.userEntity.surname)
+            tvBirthdate.text = currentState.userEntity.birthdate
+        }
+    }
+
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        viewModel.changeStateToContent()
+        _binding = null
     }
 
 }
