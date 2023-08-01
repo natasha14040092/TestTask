@@ -169,8 +169,7 @@ class SignUpViewModel(
     }
 
     fun goToHomeScreen(navController: NavController) {
-        val homeUri = HOME_URI.toUri()
-        navController.navigate(homeUri)
+        navController.navigate(HOME_URI.toUri())
     }
 }
 
