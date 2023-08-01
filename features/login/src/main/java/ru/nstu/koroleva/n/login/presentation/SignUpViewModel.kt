@@ -145,8 +145,7 @@ class SignUpViewModel(
         setUserDataUseCase(userEntity)
     }
 
-
-    fun goToMainScreen(navController: NavController) {
+    fun goToHomeScreen(navController: NavController) {
         val homeUri = HOME_URI.toUri()
         navController.navigate(homeUri)
     }

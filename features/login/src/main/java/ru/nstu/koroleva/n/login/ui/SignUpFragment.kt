@@ -26,11 +26,6 @@ import ru.nstu.koroleva.n.preferences.UserSharedPreferencesProvider
 
 
 class SignUpFragment : Fragment() {
-    companion object {
-        @JvmStatic
-        fun newInstance() = SignUpFragment()
-    }
-
     private var _binding: FragmentSignUpBinding? = null
     private val binding get() = _binding!!
 
@@ -157,7 +152,7 @@ class SignUpFragment : Fragment() {
 
             is SignUpState.Ok -> {
                 Toast.makeText(context, getString(R.string.sign_up_success), Toast.LENGTH_SHORT).show()
-                viewModel.goToMainScreen(findNavController())
+                viewModel.goToHomeScreen(findNavController())
             }
         }
     }
