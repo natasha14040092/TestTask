@@ -6,270 +6,261 @@
     android:layout_height="match_parent"
     tools:context=".ui.SignUpFragment">
 
-    <LinearLayout
-        android:id="@+id/llUsersInfoSignUp"
+    <ScrollView
+        android:id="@+id/svSignUp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45">
-
-        <TextView
-            android:id="@+id/tvTitleSignUp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/montserrat_medium"
-            android:text="@string/sign_up_title_text"
-            android:textColor="@color/black_text_700"
-            android:textSize="27sp" />
-
-        <TextView
-            android:id="@+id/tvNameSignUp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:fontFamily="@font/montserrat"
-            android:text="@string/name_text"
-            android:textColor="@color/black_text_700"
-            android:textSize="@dimen/tv_text_size_sign_up" />
+        android:scrollbars="none">
 
         <LinearLayout
+            android:id="@+id/llUsersInfoSignUp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-            <!-- ИКОНКА
-            <ImageView
-                android:id="@+id/ivIcLoginSignUp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:contentDescription="Person icon"
-                android:src="@drawable/ic_profile" />
-        !-->
-            <EditText
-                android:id="@+id/etNameSignUp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:autofillHints="personGivenName"
-                android:ems="10"
-                android:fontFamily="@font/montserrat"
-                android:hint="@string/name_text_hint"
-                android:imeOptions="actionNext"
-                android:inputType="textPersonName"
-                android:minHeight="48dp"
-                android:textColorHint="#757575" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/tvSurnameSignUp"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_between_ll_blocks"
-            android:fontFamily="@font/montserrat"
-            android:text="@string/surname_text"
-            android:textColor="@color/black_text_700"
-            android:textSize="@dimen/tv_text_size_sign_up" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-            <!-- ИКОНКА
-                <ImageView
-                    android:id="@+id/ivIcLoginSignUp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:contentDescription="Person icon"
-                    android:src="@drawable/ic_profile" />
-            !-->
-            <EditText
-                android:id="@+id/etSurnameSignUp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:autofillHints="personFamilyName"
-                android:ems="10"
-                android:fontFamily="@font/montserrat"
-                android:hint="@string/surname_text_hint"
-                android:imeOptions="actionNext"
-                android:inputType="textPersonName"
-                android:minHeight="48dp"
-                android:textColorHint="#757575" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/tvBirthdateSignUp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_between_ll_blocks"
-            android:fontFamily="@font/montserrat"
-            android:text="@string/birthdate_text"
-            android:textColor="@color/black_text_700"
-            android:textSize="@dimen/tv_text_size_sign_up" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-            <!-- ИКОНКА
-                <ImageView
-                    android:id="@+id/ivIcLoginSignUp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:contentDescription="Person icon"
-                    android:src="@drawable/ic_profile" />
-            !-->
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tvBirthdatePickerSignUp"
+                android:id="@+id/tvTitleSignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="@string/sign_up_title_text"
+                android:textColor="@color/black_text_700"
+                android:textSize="27sp" />
+
+            <TextView
+                android:id="@+id/tvNameSignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/name_text"
+                android:textColor="@color/black_text_700"
+                android:textSize="@dimen/tv_text_size_sign_up" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/wNameField"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginLeft="5dp"
-                android:fontFamily="@font/montserrat"
-                android:gravity="center_vertical"
-                android:text="@string/birthdate_text_hint"
-                android:textColor="#757575"
-                android:textSize="17sp" />
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="#00FFFFFF"
+                app:errorEnabled="true">
 
+                <EditText
+                    android:id="@+id/etNameSignUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:autofillHints="personGivenName"
+                    android:ems="10"
+                    android:fontFamily="@font/montserrat"
+                    android:hint=""
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp"
+                    android:textColorHint="#757575" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tvSurnameSignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_between_ll_blocks"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/surname_text"
+                android:textColor="@color/black_text_700"
+                android:textSize="@dimen/tv_text_size_sign_up" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/wSurnameField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="#00FFFFFF"
+                app:errorEnabled="true">
+
+                <EditText
+                    android:id="@+id/etSurnameSignUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:autofillHints="personFamilyName"
+                    android:ems="10"
+                    android:fontFamily="@font/montserrat"
+                    android:hint=""
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp"
+                    android:textColorHint="#757575" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:id="@+id/tvBirthdateSignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_between_ll_blocks"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/birthdate_text"
+                android:textColor="@color/black_text_700"
+                android:textSize="@dimen/tv_text_size_sign_up" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/wBirthdateField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="#00FFFFFF"
+                app:errorEnabled="true">
+
+                <EditText
+                    android:id="@+id/etBirthdatePickerSignUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:autofillHints="personFamilyName"
+                    android:clickable="true"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:fontFamily="@font/montserrat"
+                    android:hint=""
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp"
+                    android:textColorHint="#757575" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tvPasswordSignUp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_between_ll_blocks"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/password_text"
+                android:textColor="@color/black_text_700"
+                android:textSize="@dimen/tv_text_size_sign_up" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/wPasswordField"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:boxBackgroundColor="#00FFFFFF"
+                    app:errorEnabled="true">
+
+                    <EditText
+                        android:id="@+id/etPasswordSignUp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:autofillHints="password"
+                        android:ems="10"
+                        android:fontFamily="@font/montserrat"
+                        android:hint=""
+                        android:imeOptions="actionNext"
+                        android:inputType="textPassword"
+                        android:minHeight="48dp"
+                        android:textColorHint="#757575" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageButton
+                    android:id="@+id/ibShowPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#00FFFFFF"
+                    android:contentDescription="Show password"
+                    android:minHeight="48dp"
+                    android:src="@drawable/ic_eye_close" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvRepeatPasswordSignUp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_between_ll_blocks"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/repeat_password_text"
+                android:textColor="@color/black_text_700"
+                android:textSize="@dimen/tv_text_size_sign_up" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/wRepeatPasswordField"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:boxBackgroundColor="#00FFFFFF"
+                    app:errorEnabled="true">
+
+                    <EditText
+                        android:id="@+id/etRepeatPasswordSignUp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:autofillHints="password"
+                        android:ems="10"
+                        android:fontFamily="@font/montserrat"
+                        android:hint=""
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+                        android:minHeight="48dp"
+                        android:textColorHint="#757575" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <ImageButton
+                    android:id="@+id/ibShowRepeatPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#00FFFFFF"
+                    android:contentDescription="Show repeat password"
+                    android:minHeight="48dp"
+                    android:src="@drawable/ic_eye_close" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/bSignUp"
+                style="@style/Widget.MaterialComponents.Button.Icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/gray_button_500"
+                android:clickable="false"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/b_sign_up_text"
+                android:textAllCaps="false"
+                android:textSize="17sp"
+                app:cornerRadius="30dp"
+                app:icon="@drawable/ic_right_arrow"
+                app:iconGravity="end"
+                app:iconPadding="7dp"
+                app:iconSize="15dp"
+                app:rippleColor="@color/orange_button_700" />
 
         </LinearLayout>
-
-
-        <TextView
-            android:id="@+id/tvPasswordSignUp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_between_ll_blocks"
-            android:fontFamily="@font/montserrat"
-            android:text="@string/password_text"
-            android:textColor="@color/black_text_700"
-            android:textSize="@dimen/tv_text_size_sign_up" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-            <!--
-            <ImageView
-                android:id="@+id/ivIcPasswordSignUp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:contentDescription="Key icon"
-                android:src="@drawable/ic_key" />
-        !-->
-            <EditText
-                android:id="@+id/etPasswordSignUp"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="1"
-                android:autofillHints="password"
-                android:ems="10"
-                android:fontFamily="@font/montserrat"
-                android:hint="@string/password_text_hint"
-                android:imeOptions="actionNext"
-                android:inputType="textPassword"
-                android:minHeight="48dp"
-                android:textColorHint="#757575" />
-
-            <ImageButton
-                android:id="@+id/ibShowPassword"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#00FFFFFF"
-                android:contentDescription="Show password"
-                android:minHeight="48dp"
-                android:src="@drawable/ic_eye_close" />
-
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/tvRepeatPasswordSignUp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_between_ll_blocks"
-            android:fontFamily="@font/montserrat"
-            android:text="@string/repeat_password_text"
-            android:textColor="@color/black_text_700"
-            android:textSize="@dimen/tv_text_size_sign_up" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-            <!--
-            <ImageView
-                android:id="@+id/ivIcRepeatPasswordSignUp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:contentDescription="Key icon"
-                android:src="@drawable/ic_key" />
-        !-->
-
-            <EditText
-                android:id="@+id/etRepeatPasswordSignUp"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="1"
-                android:autofillHints="password"
-                android:ems="10"
-                android:fontFamily="@font/montserrat"
-                android:hint="@string/password_text_hint"
-                android:imeOptions="actionDone"
-                android:inputType="textPassword"
-                android:minHeight="48dp"
-                android:textColorHint="#757575" />
-
-
-            <ImageButton
-                android:id="@+id/ibShowRepeatPassword"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#00FFFFFF"
-                android:contentDescription="Show repeat password"
-                android:minHeight="48dp"
-                android:src="@drawable/ic_eye_close" />
-
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/bSignUp"
-            style="@style/Widget.MaterialComponents.Button.Icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginTop="15dp"
-            android:backgroundTint="@color/gray_button_500"
-            android:clickable="false"
-            android:fontFamily="@font/montserrat"
-            android:text="@string/b_sign_up_text"
-            android:textAllCaps="false"
-            android:textSize="17sp"
-            app:cornerRadius="30dp"
-            app:icon="@drawable/ic_right_arrow"
-            app:iconGravity="end"
-            app:iconPadding="7dp"
-            app:iconSize="15dp"
-            app:rippleColor="@color/orange_button_700" />
-
-    </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

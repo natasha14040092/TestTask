@@ -11,6 +11,7 @@ sealed class SignUpState {
         val signUpButtonClick: Boolean,
         val nameError: SignUpErrorState,
         val surnameError: SignUpErrorState,
+        val birthdateError: SignUpErrorState,
         val passwordError: SignUpErrorState,
         val repeatPasswordError: SignUpErrorState
     ) : SignUpState()

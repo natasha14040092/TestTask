@@ -8,10 +8,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
+import ru.nstu.koroleva.n.login.R
 import ru.nstu.koroleva.n.login.domain.entity.UserEntity
 import ru.nstu.koroleva.n.login.domain.usecase.SetUserDataUseCase
 import ru.nstu.koroleva.n.resources.ui.DatePickerDialogFragment
 import ru.nstu.koroleva.n.navigation.HOME_URI
+import java.text.SimpleDateFormat
+import java.util.*
 
 class SignUpViewModel(
     private val setUserDataUseCase: SetUserDataUseCase
@@ -36,6 +39,7 @@ class SignUpViewModel(
             signUpButtonClick = false,
             nameError = SignUpErrorState.NoError,
             surnameError = SignUpErrorState.NoError,
+            birthdateError = SignUpErrorState.NoError,
             passwordError = SignUpErrorState.NoError,
             repeatPasswordError = SignUpErrorState.NoError,
         )
@@ -66,7 +70,10 @@ class SignUpViewModel(
         _state.value = currentState.copy(repeatPasswordText = text)
     }
 
-    fun showDatePicker(supportFragmentManager: FragmentManager, viewLifecycleOwner: LifecycleOwner) {
+    fun openDatePicker(
+        supportFragmentManager: FragmentManager,
+        viewLifecycleOwner: LifecycleOwner
+    ) {
         val datePickerFragment = DatePickerDialogFragment()
 
         supportFragmentManager.setFragmentResultListener(
@@ -87,16 +94,27 @@ class SignUpViewModel(
     fun changeSignUpButtonState() {
         val currentState = _state.value as? SignUpState.Content ?: return
 
-        if (currentState.nameText != EMPTY_TEXT && currentState.surnameText != EMPTY_TEXT && currentState.birthdateText != EMPTY_TEXT && currentState.passwordText != EMPTY_TEXT && currentState.repeatPasswordText != EMPTY_TEXT) _state.value =
-            currentState.copy(signUpButtonClick = true)
+        if (currentState.nameText != EMPTY_TEXT
+            && currentState.surnameText != EMPTY_TEXT
+            && currentState.birthdateText != EMPTY_TEXT
+            && currentState.passwordText != EMPTY_TEXT
+            && currentState.repeatPasswordText != EMPTY_TEXT
+        )
+            _state.value =
+                currentState.copy(signUpButtonClick = true)
         else _state.value = currentState.copy(signUpButtonClick = false)
     }
 
     fun onClickSignUpButton() {
+        validateUserData()
+        checkErrors()
+    }
+
+    private fun validateUserData() {
         validateNameFields()
+        validateBirthdate()
         validatePassword()
         validateRepeatPassword()
-        checkErrors()
     }
 
     private fun validateNameFields() {
@@ -112,6 +130,24 @@ class SignUpViewModel(
         nameText.length < 2 -> SignUpErrorState.ShortTextError
         nameText.contains("[!\"#$%&'@()*+,-./:;<=>?\\[\\]^_`{|}~0-9\\s]".toRegex()) -> SignUpErrorState.SpecialSymbolError
         else -> SignUpErrorState.NoError
+    }
+
+    private fun validateBirthdate() {
+        val currentState = _state.value as? SignUpState.Content ?: return
+
+        val selectedDate =
+            SimpleDateFormat("dd.MM.yyyy", Locale.ENGLISH).parse(currentState.birthdateText)
+                ?: return
+
+        val cmp = selectedDate.compareTo(Date())
+        when {
+            cmp > 0 ->
+                _state.value = currentState.copy(birthdateError = SignUpErrorState.IntervalError)
+
+            cmp < 0 ->
+                _state.value = currentState.copy(birthdateError = SignUpErrorState.NoError)
+
+        }
     }
 
     private fun validatePassword() {

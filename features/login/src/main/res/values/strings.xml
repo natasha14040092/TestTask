@@ -1,22 +1,20 @@
 <resources>
     <string name="sign_up_title_text">Регистрация аккаунта</string>
     <string name="name_text">Имя</string>
-    <string name="name_text_hint">Введите имя…</string>
     <string name="surname_text">Фамилия</string>
-    <string name="surname_text_hint">Введите фамилию…</string>
     <string name="birthdate_text">Дата рождения</string>
-    <string name="birthdate_text_hint">Выберите дату рождения…</string>
     <string name="password_text">Пароль</string>
-    <string name="password_text_hint">Введите пароль…</string>
     <string name="repeat_password_text">Повторите пароль</string>
     <string name="b_sign_up_text">Регистрация</string>
+
     <string name="error_message_name_short">поле должно содержать не менее 2 букв</string>
     <string name="error_message_name_contains_special_symbol">допустимы только буквы</string>
-    <string name="error_message_password_short">"длина пароля меньше 8 символов"</string>
+    <string name="error_message_password_short">длина пароля меньше 8 символов</string>
     <string name="error_message_without_special_symbol">в пароле должен быть хотя бы
         один из символов: «! @ # $ % ^ &amp; * ( ) — _ + = ; : , ./ ? | ` ~ [ ] { }»</string>
     <string name="error_message_without_digit">в пароле должна быть хотя бы 1 цифра</string>
     <string name="error_message_without_uppercase">в пароле должна быть хотя бы 1 буква верхнего регистра</string>
-    <string name="error_message_passwords_dont_match">пароли не совпадаю"</string>
+    <string name="error_message_passwords_dont_match">пароли не совпадают</string>
+    <string name="error_message_date_interval_error">дата рождения не может быть позже сегодняшнего дня</string>
     <string name="sign_up_success">Регистрация успешна</string>
 </resources>

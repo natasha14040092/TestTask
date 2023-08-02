@@ -13,6 +13,7 @@ import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.textfield.TextInputLayout
 import ru.nstu.koroleva.n.login.R
 import ru.nstu.koroleva.n.login.data.datasource.UserDataSourceImpl
 import ru.nstu.koroleva.n.login.data.repository.UserDataRepositoryImpl
@@ -80,8 +81,8 @@ class SignUpFragment : Fragment() {
                 viewModel.changeSignUpButtonState()
             }
 
-            tvBirthdatePickerSignUp.setOnClickListener {
-                viewModel.showDatePicker(requireActivity().supportFragmentManager, viewLifecycleOwner)
+            etBirthdatePickerSignUp.setOnClickListener {
+                viewModel.openDatePicker(requireActivity().supportFragmentManager, viewLifecycleOwner)
             }
 
             ibShowPassword.setOnClickListener {
@@ -123,8 +124,9 @@ class SignUpFragment : Fragment() {
             is SignUpState.Content -> {
                 showDate(state.birthdateText)
                 changeClickSignUpButton(state.signUpButtonClick)
-                showNameError(state.nameError, binding.etNameSignUp)
-                showNameError(state.surnameError, binding.etSurnameSignUp)
+                showNameError(state.nameError,binding.wNameField)
+                showNameError(state.surnameError, binding.wSurnameField)
+                showDateError(state.birthdateError)
                 showPasswordError(state.passwordError)
                 showRepeatPasswordError(state.repeatPasswordError)
             }
@@ -137,11 +139,11 @@ class SignUpFragment : Fragment() {
     }
 
     private fun showDate(date: String) {
-        binding.tvBirthdatePickerSignUp.text = date
+        binding.etBirthdatePickerSignUp.setText(date)
     }
 
-    private fun changeClickSignUpButton(state: Boolean) {
-        when (state) {
+    private fun changeClickSignUpButton(stateSignUpButton: Boolean) {
+        when (stateSignUpButton) {
             true -> {
                 with(binding) {
                     bSignUp.isClickable = true
@@ -159,7 +161,7 @@ class SignUpFragment : Fragment() {
         }
     }
 
-    private fun showNameError(error: SignUpErrorState, field: EditText) {
+    private fun showNameError(error: SignUpErrorState, field: TextInputLayout) {
         when (error) {
             is SignUpErrorState.ShortTextError -> field.error =
                 getString(R.string.error_message_name_short)
@@ -172,30 +174,41 @@ class SignUpFragment : Fragment() {
         }
     }
 
+    private fun showDateError(error: SignUpErrorState) {
+        when (error) {
+            is SignUpErrorState.IntervalError -> binding.wBirthdateField.error =
+                getString(R.string.error_message_date_interval_error)
+
+            is SignUpErrorState.NoError -> binding.wBirthdateField.error = null
+            else -> return
+        }
+
+    }
+
     private fun showPasswordError(error: SignUpErrorState) {
         when (error) {
-            is SignUpErrorState.ShortTextError -> binding.etPasswordSignUp.error =
+            is SignUpErrorState.ShortTextError -> binding.wPasswordField.error =
                 getString(R.string.error_message_password_short)
 
-            is SignUpErrorState.SpecialSymbolError -> binding.etPasswordSignUp.error =
+            is SignUpErrorState.SpecialSymbolError -> binding.wPasswordField.error =
                 getString(R.string.error_message_without_special_symbol)
 
-            is SignUpErrorState.DigitError -> binding.etPasswordSignUp.error =
+            is SignUpErrorState.DigitError -> binding.wPasswordField.error =
                 getString(R.string.error_message_without_digit)
 
-            is SignUpErrorState.UppercaseError -> binding.etPasswordSignUp.error =
+            is SignUpErrorState.UppercaseError -> binding.wPasswordField.error =
                 getString(R.string.error_message_without_uppercase)
 
-            is SignUpErrorState.NoError -> binding.etPasswordSignUp.error = null
+            is SignUpErrorState.NoError -> binding.wPasswordField.error = null
             else -> return
         }
     }
 
     private fun showRepeatPasswordError(error: SignUpErrorState) {
         when (error) {
-            is SignUpErrorState.PasswordMatchError -> binding.etRepeatPasswordSignUp.error =
+            is SignUpErrorState.PasswordMatchError -> binding.wRepeatPasswordField.error =
                 getString(R.string.error_message_passwords_dont_match)
-            is SignUpErrorState.NoError -> binding.etRepeatPasswordSignUp.error = null
+            is SignUpErrorState.NoError -> binding.wRepeatPasswordField.error = null
             else -> return
         }
     }

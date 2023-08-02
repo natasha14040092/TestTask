@@ -7,5 +7,6 @@ sealed class SignUpErrorState {
     object DigitError : SignUpErrorState()
     object UppercaseError : SignUpErrorState()
     object PasswordMatchError : SignUpErrorState()
+    object IntervalError : SignUpErrorState()
 }
 
