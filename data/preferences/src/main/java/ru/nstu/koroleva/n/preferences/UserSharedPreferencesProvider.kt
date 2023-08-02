@@ -53,14 +53,4 @@ class UserSharedPreferencesProvider(context: Context) {
     fun clearUserInfo() {
         sharedPreferences.edit().clear().apply()
     }
-
-//Todo
-
-//    fun putUserName(name: String) {
-//        sharedPreferences.edit().putString(NAME, name).apply()
-//    }
-//
-//    fun putUserSurname(surname: String) {
-//        sharedPreferences.edit().putString(SURNAME, surname).apply()
-//    }
 }
