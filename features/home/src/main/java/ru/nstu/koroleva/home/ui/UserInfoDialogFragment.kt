@@ -4,9 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.DialogFragment
 import ru.nstu.koroleva.home.presentation.HomeState
 import ru.nstu.koroleva.home.presentation.HomeViewModel
+import ru.nstu.koroleva.n.home.R
 import ru.nstu.koroleva.n.home.databinding.FragmentUserInfoDialogBinding
 
 class UserInfoDialogFragment(private val viewModel: HomeViewModel) : DialogFragment() {
@@ -32,19 +35,53 @@ class UserInfoDialogFragment(private val viewModel: HomeViewModel) : DialogFragm
     }
 
     private fun setsOnClickListeners() {
+        with(binding) {
+            etName.doOnTextChanged { text, _, _, _ ->
+                viewModel.setNameText(text.toString())
+            }
+
+            etSurname.doOnTextChanged { text, _, _, _ ->
+                viewModel.setSurnameText(text.toString())
+            }
+
+            tvBirthdate.setOnClickListener {
+                viewModel.openDatePicker(
+                    requireActivity().supportFragmentManager,
+                    viewLifecycleOwner
+                )
+            }
+
+            bSaveUserInfo.setOnClickListener {
+                viewModel.onClickSaveButton()
+                Toast.makeText(context, getString(R.string.save_user_data_text), Toast.LENGTH_SHORT)
+                    .show()
+                dialog?.dismiss()
+            }
+
+            bCloseDialog.setOnClickListener {
+                dialog?.dismiss()
+            }
+        }
 
     }
 
     private fun setsObserves() {
+        viewModel.state.observe(viewLifecycleOwner) {
+            if (it is HomeState.Dialog) showBirthdateText(it)
+        }
 
+    }
+
+    private fun showBirthdateText(state: HomeState.Dialog) {
+        binding.tvBirthdate.text = state.userBirthdate
     }
 
     private fun showsDialogContent() {
         val currentState = viewModel.state.value as? HomeState.Dialog ?: return
         with(binding) {
-            etName.setText(currentState.userEntity.name)
-            etSurname.setText(currentState.userEntity.surname)
-            tvBirthdate.text = currentState.userEntity.birthdate
+            etName.setText(currentState.userName)
+            etSurname.setText(currentState.userSurname)
+            tvBirthdate.text = currentState.userBirthdate
         }
     }
 

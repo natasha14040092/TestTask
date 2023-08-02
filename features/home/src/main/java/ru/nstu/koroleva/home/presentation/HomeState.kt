@@ -8,6 +8,9 @@ sealed class HomeState {
     ) : HomeState()
 
     data class Dialog(
-        val userEntity: UserEntity
+        val userName: String,
+        val userSurname: String,
+        val userBirthdate: String,
+        val password: String
     ) : HomeState()
 }

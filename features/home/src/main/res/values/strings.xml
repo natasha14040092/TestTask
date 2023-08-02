@@ -3,7 +3,8 @@
     <string name="welcome_text">Добро пожаловать</string>
     <string name="greeting_button_text">Приветствие</string>
     <string name="instructions_text">Для получения информации о пользователе, нажмите на кнопку приветствия…</string>
-    <string name="name">Имя</string>
-    <string name="surname">Фамилия</string>
-    <string name="birthdate">Дата рождения</string>
+    <string name="name_text">Имя</string>
+    <string name="surname_text">Фамилия</string>
+    <string name="birthdate_text">Дата рождения</string>
+    <string name="save_user_data_text">Информация о пользователе сохранена</string>
 </resources>
