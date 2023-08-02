@@ -1,5 +1,6 @@
 package ru.nstu.koroleva.n.login.ui
 
+import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
@@ -24,6 +25,7 @@ import ru.nstu.koroleva.n.login.presentation.SignUpState
 import ru.nstu.koroleva.n.login.presentation.SignUpViewModel
 import ru.nstu.koroleva.n.login.presentation.SignUpViewModelFactory
 import ru.nstu.koroleva.n.preferences.UserSharedPreferencesProvider
+import ru.nstu.koroleva.n.resources.ui.setBackgroundAnimation
 
 
 class SignUpFragment : Fragment() {
@@ -36,6 +38,7 @@ class SignUpFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentSignUpBinding.inflate(inflater, container, false)
+        setBackgroundAnimation(binding.root.background as AnimationDrawable)
         return binding.root
     }
 
@@ -148,14 +151,14 @@ class SignUpFragment : Fragment() {
                 with(binding) {
                     bSignUp.isClickable = true
                     bSignUp.backgroundTintList =
-                        context?.getColorStateList(ru.nstu.koroleva.n.resources.R.color.orange_button_500)
+                        requireContext().getColorStateList(ru.nstu.koroleva.n.resources.R.color.available_button)
                 }
             }
             false -> {
                 with(binding) {
                     bSignUp.isClickable = false
                     bSignUp.backgroundTintList =
-                        context?.getColorStateList(ru.nstu.koroleva.n.resources.R.color.gray_button_500)
+                        requireContext().getColorStateList(ru.nstu.koroleva.n.resources.R.color.unavailable_button)
                 }
             }
         }

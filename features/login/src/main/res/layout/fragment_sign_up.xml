@@ -4,32 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_animation"
     tools:context=".ui.SignUpFragment">
 
     <ScrollView
         android:id="@+id/svSignUp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:scrollbars="none">
+        >
 
         <LinearLayout
             android:id="@+id/llUsersInfoSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/layout_bg"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tvTitleSignUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
                 android:layout_gravity="center"
                 android:fontFamily="@font/montserrat_medium"
                 android:text="@string/sign_up_title_text"
@@ -41,6 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
+                android:layout_marginStart="@dimen/fields_margin_start_end"
                 android:fontFamily="@font/montserrat"
                 android:text="@string/name_text"
                 android:textColor="@color/black_text_700"
@@ -50,6 +55,9 @@
                 android:id="@+id/wNameField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_inside_blocks"
+                android:layout_marginStart="@dimen/fields_margin_start_end"
+                android:layout_marginEnd="@dimen/fields_margin_start_end"
                 app:boxBackgroundColor="#00FFFFFF"
                 app:errorEnabled="true">
 
@@ -57,11 +65,9 @@
                     android:id="@+id/etNameSignUp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:autofillHints="personGivenName"
                     android:ems="10"
                     android:fontFamily="@font/montserrat"
-                    android:hint=""
                     android:imeOptions="actionNext"
                     android:inputType="textPersonName"
                     android:minHeight="48dp"
@@ -72,7 +78,8 @@
                 android:id="@+id/tvSurnameSignUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_between_ll_blocks"
+                android:layout_marginTop="@dimen/space_between_blocks"
+                android:layout_marginStart="@dimen/fields_margin_start_end"
                 android:fontFamily="@font/montserrat"
                 android:text="@string/surname_text"
                 android:textColor="@color/black_text_700"
@@ -82,6 +89,9 @@
                 android:id="@+id/wSurnameField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_inside_blocks"
+                android:layout_marginStart="@dimen/fields_margin_start_end"
+                android:layout_marginEnd="@dimen/fields_margin_start_end"
                 app:boxBackgroundColor="#00FFFFFF"
                 app:errorEnabled="true">
 
@@ -89,12 +99,10 @@
                     android:id="@+id/etSurnameSignUp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:autofillHints="personFamilyName"
                     android:ems="10"
                     android:fontFamily="@font/montserrat"
-                    android:hint=""
-                    android:imeOptions="actionNext"
+                    android:imeOptions="actionDone"
                     android:inputType="textPersonName"
                     android:minHeight="48dp"
                     android:textColorHint="#757575" />
@@ -105,7 +113,8 @@
                 android:id="@+id/tvBirthdateSignUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_between_ll_blocks"
+                android:layout_marginTop="@dimen/space_between_blocks"
+                android:layout_marginStart="@dimen/fields_margin_start_end"
                 android:fontFamily="@font/montserrat"
                 android:text="@string/birthdate_text"
                 android:textColor="@color/black_text_700"
@@ -117,19 +126,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:boxBackgroundColor="#00FFFFFF"
+                android:layout_marginTop="@dimen/space_inside_blocks"
+                android:layout_marginStart="@dimen/fields_margin_start_end"
+                android:layout_marginEnd="@dimen/fields_margin_start_end"
                 app:errorEnabled="true">
 
                 <EditText
                     android:id="@+id/etBirthdatePickerSignUp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:autofillHints="personFamilyName"
                     android:clickable="true"
                     android:ems="10"
                     android:focusable="false"
                     android:fontFamily="@font/montserrat"
-                    android:hint=""
                     android:imeOptions="actionNext"
                     android:inputType="textPersonName"
                     android:minHeight="48dp"
@@ -141,7 +151,8 @@
                 android:id="@+id/tvPasswordSignUp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_between_ll_blocks"
+                android:layout_marginTop="@dimen/space_between_blocks"
+                android:layout_marginStart="@dimen/fields_margin_start_end"
                 android:fontFamily="@font/montserrat"
                 android:text="@string/password_text"
                 android:textColor="@color/black_text_700"
@@ -150,7 +161,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="@dimen/space_inside_blocks"
+                android:layout_marginStart="@dimen/fields_margin_start_end"
+                android:layout_marginEnd="@dimen/fields_margin_start_end"
                 android:orientation="horizontal">
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -159,18 +172,17 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     app:boxBackgroundColor="#00FFFFFF"
-                    app:errorEnabled="true">
+                    app:errorEnabled="true"
+                    >
 
                     <EditText
                         android:id="@+id/etPasswordSignUp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="5dp"
                         android:autofillHints="password"
                         android:ems="10"
                         android:fontFamily="@font/montserrat"
-                        android:hint=""
-                        android:imeOptions="actionNext"
+                        android:imeOptions="actionDone"
                         android:inputType="textPassword"
                         android:minHeight="48dp"
                         android:textColorHint="#757575" />
@@ -192,7 +204,8 @@
                 android:id="@+id/tvRepeatPasswordSignUp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_between_ll_blocks"
+                android:layout_marginTop="@dimen/space_between_blocks"
+                android:layout_marginStart="@dimen/fields_margin_start_end"
                 android:fontFamily="@font/montserrat"
                 android:text="@string/repeat_password_text"
                 android:textColor="@color/black_text_700"
@@ -201,7 +214,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="@dimen/space_inside_blocks"
+                android:layout_marginStart="@dimen/fields_margin_start_end"
+                android:layout_marginEnd="@dimen/fields_margin_start_end"
                 android:orientation="horizontal">
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -216,11 +231,9 @@
                         android:id="@+id/etRepeatPasswordSignUp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="5dp"
                         android:autofillHints="password"
                         android:ems="10"
                         android:fontFamily="@font/montserrat"
-                        android:hint=""
                         android:imeOptions="actionDone"
                         android:inputType="textPassword"
                         android:minHeight="48dp"
@@ -245,9 +258,10 @@
                 style="@style/Widget.MaterialComponents.Button.Icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
+                android:layout_gravity="center"
+                android:layout_marginVertical="15dp"
                 android:layout_marginTop="15dp"
-                android:backgroundTint="@color/gray_button_500"
+                android:backgroundTint="@color/unavailable_button"
                 android:clickable="false"
                 android:fontFamily="@font/montserrat"
                 android:text="@string/b_sign_up_text"
@@ -258,7 +272,7 @@
                 app:iconGravity="end"
                 app:iconPadding="7dp"
                 app:iconSize="15dp"
-                app:rippleColor="@color/orange_button_700" />
+                app:rippleColor="@color/available_button" />
 
         </LinearLayout>
     </ScrollView>

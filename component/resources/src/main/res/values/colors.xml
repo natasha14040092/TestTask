@@ -6,10 +6,18 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
 
+    <color name="colorGradientStart">#F9A8D4</color>
+    <color name="colorGradientCenter">#D8B4FE</color>
+    <color name="colorGradientEnd">#818CFF</color>
+
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="black_text_700">#100E0E</color>
     <color name="orange_button_500">#FFC411</color>
     <color name="orange_button_700">#FF5722</color>
     <color name="gray_button_500">#B0B1B1B1</color>
+
+    <color name="unavailable_button">#BCBABA</color>
+    <color name="available_button">#F9A8D3</color>
+
 </resources>
