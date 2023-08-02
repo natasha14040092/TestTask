@@ -12,6 +12,7 @@ import ru.nstu.koroleva.home.data.repository.UserDataRepositoryImpl
 import ru.nstu.koroleva.home.domain.repository.UserDataRepository
 import ru.nstu.koroleva.home.domain.usecase.ClearUserDataUseCase
 import ru.nstu.koroleva.home.domain.usecase.GetUserDataUseCase
+import ru.nstu.koroleva.home.domain.usecase.SetUserDataUseCase
 import ru.nstu.koroleva.home.presentation.HomeState
 import ru.nstu.koroleva.home.presentation.HomeViewModel
 import ru.nstu.koroleva.home.presentation.HomeViewModelFactory
@@ -42,7 +43,9 @@ class HomeFragment : Fragment() {
     private fun initViewModel() {
         val userDataRepository = initRepository()
         val viewModelFactory = HomeViewModelFactory(
-            GetUserDataUseCase(userDataRepository), ClearUserDataUseCase(userDataRepository)
+            GetUserDataUseCase(userDataRepository),
+            ClearUserDataUseCase(userDataRepository),
+            SetUserDataUseCase(userDataRepository)
         )
         viewModel = ViewModelProvider(this, viewModelFactory)[HomeViewModel::class.java]
     }

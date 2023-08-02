@@ -6,4 +6,6 @@ interface UserDataRepository {
     fun getUserData() : UserEntity
 
     fun clearUserData()
+
+    fun setUserData(userEntity: UserEntity)
 }

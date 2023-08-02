@@ -5,3 +5,6 @@ import ru.nstu.koroleva.n.preferences.model.UserModel
 
 fun UserModel.toEntity(): UserEntity =
     UserEntity(this.name, this.surname, this.birthdate, this.password)
+
+fun UserEntity.toModel(): UserModel =
+    UserModel(this.name, this.surname, this.birthdate, this.password)

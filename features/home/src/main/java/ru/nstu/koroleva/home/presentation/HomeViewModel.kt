@@ -6,12 +6,14 @@ import androidx.lifecycle.*
 import androidx.navigation.NavController
 import ru.nstu.koroleva.home.domain.usecase.ClearUserDataUseCase
 import ru.nstu.koroleva.home.domain.usecase.GetUserDataUseCase
+import ru.nstu.koroleva.home.domain.usecase.SetUserDataUseCase
 import ru.nstu.koroleva.home.ui.UserInfoDialogFragment
 import ru.nstu.koroleva.n.navigation.LOGIN_URI
 
 class HomeViewModel(
     private val getUserDataUseCase: GetUserDataUseCase,
-    private val clearUserDataUseCase: ClearUserDataUseCase
+    private val clearUserDataUseCase: ClearUserDataUseCase,
+    private val setUserDataUseCase: SetUserDataUseCase,
 ) : ViewModel() {
     private companion object {
         const val EMPTY_TEXT = ""
@@ -33,6 +35,22 @@ class HomeViewModel(
         return currentState.userName
     }
 
+    fun setUserName() {
+
+    }
+
+    fun setUserSurname() {
+
+    }
+
+    fun setUserBirthdate() {
+
+    }
+
+    fun onClickSaveButton() {
+
+    }
+
     fun logOut(navController: NavController) {
         clearUserDataUseCase()
         navController.popBackStack()
@@ -49,14 +67,16 @@ class HomeViewModel(
 
 class HomeViewModelFactory(
     private val getUserDataUseCase: GetUserDataUseCase,
-    private val clearUserDataUseCase: ClearUserDataUseCase
+    private val clearUserDataUseCase: ClearUserDataUseCase,
+    private val setUserDataUseCase: SetUserDataUseCase
 ) :
     ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(HomeViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST") return HomeViewModel(
                 getUserDataUseCase,
-                clearUserDataUseCase
+                clearUserDataUseCase,
+                setUserDataUseCase
             ) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
