@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.DialogFragment
+import com.google.android.material.textfield.TextInputLayout
+import ru.nstu.koroleva.home.presentation.DataErrorState
 import ru.nstu.koroleva.home.presentation.HomeState
 import ru.nstu.koroleva.home.presentation.HomeViewModel
 import ru.nstu.koroleva.n.home.R
@@ -53,9 +55,15 @@ class UserInfoDialogFragment(private val viewModel: HomeViewModel) : DialogFragm
 
             bSaveUserInfo.setOnClickListener {
                 viewModel.onClickSaveButton()
-                Toast.makeText(context, getString(R.string.save_user_data_text), Toast.LENGTH_SHORT)
-                    .show()
-                dialog?.dismiss()
+                if (viewModel.checkErrors(viewModel.state.value as HomeState.Dialog)) {
+                    Toast.makeText(
+                        context,
+                        getString(R.string.save_user_data_text),
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
+                    dialog?.dismiss()
+                }
             }
 
             bCloseDialog.setOnClickListener {
@@ -67,21 +75,52 @@ class UserInfoDialogFragment(private val viewModel: HomeViewModel) : DialogFragm
 
     private fun setsObserves() {
         viewModel.state.observe(viewLifecycleOwner) {
-            if (it is HomeState.Dialog) showBirthdateText(it)
+            if (it is HomeState.Dialog) {
+                showBirthdateText(it)
+                showErrors(it)
+            }
         }
+    }
 
+    private fun showErrors(homeState: HomeState.Dialog) {
+        showNameError(homeState.nameError, binding.wNameField)
+        showNameError(homeState.surnameError, binding.wSurnameField)
+        showDateError(homeState.birthdateError)
+    }
+
+    private fun showNameError(error: DataErrorState, field: TextInputLayout) {
+        when (error) {
+            is DataErrorState.ShortTextError -> field.error =
+                getString(R.string.error_message_name_short)
+
+            is DataErrorState.SpecialSymbolError -> field.error =
+                getString(R.string.error_message_name_contains_special_symbol)
+
+            is DataErrorState.NoError -> field.error = null
+            else -> return
+        }
+    }
+
+    private fun showDateError(error: DataErrorState) {
+        when (error) {
+            is DataErrorState.IntervalError -> binding.wBirthdateField.error =
+                getString(R.string.error_message_date_interval_error)
+
+            is DataErrorState.NoError -> binding.wBirthdateField.error = null
+            else -> return
+        }
     }
 
     private fun showBirthdateText(state: HomeState.Dialog) {
-        binding.etBirthdate.setText(state.userBirthdate)
+        binding.etBirthdate.setText(state.birthdateText)
     }
 
     private fun showsDialogContent() {
         val currentState = viewModel.state.value as? HomeState.Dialog ?: return
         with(binding) {
-            etName.setText(currentState.userName)
-            etSurname.setText(currentState.userSurname)
-            etBirthdate.setText(currentState.userBirthdate)
+            etName.setText(currentState.nameText)
+            etSurname.setText(currentState.surnameText)
+            etBirthdate.setText(currentState.birthdateText)
         }
     }
 

@@ -7,4 +7,8 @@
     <string name="surname_text">Фамилия</string>
     <string name="birthdate_text">Дата рождения</string>
     <string name="save_user_data_text">Информация о пользователе сохранена</string>
+
+    <string name="error_message_name_short">Поле должно содержать не менее 2 букв</string>
+    <string name="error_message_name_contains_special_symbol">Допустимы только буквы</string>
+    <string name="error_message_date_interval_error">Дата рождения не может быть позже сегодняшнего дня</string>
 </resources>
