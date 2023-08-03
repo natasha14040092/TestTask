@@ -44,7 +44,7 @@ class UserInfoDialogFragment(private val viewModel: HomeViewModel) : DialogFragm
                 viewModel.setSurnameText(text.toString())
             }
 
-            tvBirthdate.setOnClickListener {
+            etBirthdate.setOnClickListener {
                 viewModel.openDatePicker(
                     requireActivity().supportFragmentManager,
                     viewLifecycleOwner
@@ -73,7 +73,7 @@ class UserInfoDialogFragment(private val viewModel: HomeViewModel) : DialogFragm
     }
 
     private fun showBirthdateText(state: HomeState.Dialog) {
-        binding.tvBirthdate.text = state.userBirthdate
+        binding.etBirthdate.setText(state.userBirthdate)
     }
 
     private fun showsDialogContent() {
@@ -81,7 +81,7 @@ class UserInfoDialogFragment(private val viewModel: HomeViewModel) : DialogFragm
         with(binding) {
             etName.setText(currentState.userName)
             etSurname.setText(currentState.userSurname)
-            tvBirthdate.text = currentState.userBirthdate
+            etBirthdate.setText(currentState.userBirthdate)
         }
     }
 
