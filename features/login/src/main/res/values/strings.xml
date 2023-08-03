@@ -7,14 +7,14 @@
     <string name="repeat_password_text">Повторите пароль</string>
     <string name="b_sign_up_text">Регистрация</string>
 
-    <string name="error_message_name_short">поле должно содержать не менее 2 букв</string>
-    <string name="error_message_name_contains_special_symbol">допустимы только буквы</string>
-    <string name="error_message_password_short">длина пароля меньше 8 символов</string>
-    <string name="error_message_without_special_symbol">в пароле должен быть хотя бы
+    <string name="error_message_name_short">Поле должно содержать не менее 2 букв</string>
+    <string name="error_message_name_contains_special_symbol">Допустимы только буквы</string>
+    <string name="error_message_password_short">Длина пароля меньше 8 символов</string>
+    <string name="error_message_without_special_symbol">В пароле должен быть хотя бы
         один из символов: «! @ # $ % ^ &amp; * ( ) — _ + = ; : , ./ ? | ` ~ [ ] { }»</string>
-    <string name="error_message_without_digit">в пароле должна быть хотя бы 1 цифра</string>
-    <string name="error_message_without_uppercase">в пароле должна быть хотя бы 1 буква верхнего регистра</string>
-    <string name="error_message_passwords_dont_match">пароли не совпадают</string>
-    <string name="error_message_date_interval_error">дата рождения не может быть позже сегодняшнего дня</string>
+    <string name="error_message_without_digit">В пароле должна быть хотя бы 1 цифра</string>
+    <string name="error_message_without_uppercase">В пароле должна быть хотя бы 1 буква верхнего регистра</string>
+    <string name="error_message_passwords_dont_match">Пароли не совпадают</string>
+    <string name="error_message_date_interval_error">Дата рождения не может быть позже сегодняшнего дня</string>
     <string name="sign_up_success">Регистрация успешна</string>
 </resources>
