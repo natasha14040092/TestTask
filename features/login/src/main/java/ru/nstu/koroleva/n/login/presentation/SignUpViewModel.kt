@@ -186,6 +186,7 @@ class SignUpViewModel(
 
         if (currentState.nameError is SignUpErrorState.NoError &&
             currentState.surnameError is SignUpErrorState.NoError &&
+            currentState.birthdateError is SignUpErrorState.NoError &&
             currentState.passwordError is SignUpErrorState.NoError &&
             currentState.repeatPasswordError is SignUpErrorState.NoError
         ) {
