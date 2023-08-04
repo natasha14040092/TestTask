@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomEditTextStyle" parent="@android:style/Widget.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/text_bg</item>
+        <item name="android:ems">10</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:textColorHint">#616161</item>
+    </style>
+
+    <style name="CustomTextViewStyle" parent="@android:style/Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textColor">@color/black_light</item>
+        <item name="android:textSize">19sp</item>
+    </style>
+
+    <style name="CustomWidgetTextInputLayout" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="boxBackgroundColor">#00FFFFFF</item>
+        <item name="errorEnabled">true</item>
+        <item name="hintEnabled">false</item>
+    </style>
+</resources>

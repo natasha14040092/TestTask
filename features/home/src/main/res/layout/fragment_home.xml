@@ -4,12 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_animation"
     tools:context="ru.nstu.koroleva.home.ui.HomeFragment" >
 
     <LinearLayout
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/layout_bg"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,41 +22,46 @@
         app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
-            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp">
 
             <TextView
-                android:id="@+id/tvTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="start|center_vertical"
                 android:layout_weight="1"
                 android:fontFamily="@font/montserrat_semibold"
+                android:lineSpacingExtra="1sp"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
                 android:text="@string/tv_title_main_screen"
-                android:textColor="@color/black_text_700"
-                android:textSize="30sp" />
+                android:textColor="@color/black_light"
+                android:textSize="27sp" />
 
             <ImageButton
                 android:id="@+id/ibLogOut"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="clip_vertical|end"
                 android:layout_weight="1"
-                android:backgroundTint="@color/white"
+                android:backgroundTint="#00FFFFFF"
                 android:contentDescription="Log out"
+                android:foregroundGravity="center"
                 android:minHeight="48dp"
-                android:src="@drawable/exit_door"/>
-
+                android:src="@drawable/exit_door" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/tvGreeting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/CustomTextViewStyle"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="30dp"
-            android:fontFamily="@font/montserrat"
-            android:text="@string/welcome_text"
-            android:textColor="@color/black_text_700"
-            android:textSize="19sp" />
+            android:layout_marginEnd="15dp"
+            android:text="@string/welcome_text" />
 
         <Button
             android:id="@+id/bGreeting"
@@ -60,23 +69,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="15dp"
-            android:backgroundTint="@color/orange_button_500"
+            android:layout_marginEnd="15dp"
+            android:backgroundTint="@color/pink"
             android:clickable="true"
             android:fontFamily="@font/montserrat"
             android:text="@string/greeting_button_text"
             android:textAllCaps="false"
-            android:textSize="17sp"
-            app:cornerRadius="30dp"
-            app:rippleColor="@color/orange_button_700" />
+            android:textSize="18sp"
+            app:cornerRadius="30dp" />
 
         <TextView
-            android:id="@+id/tvDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="30dp"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_light"
             android:text="@string/instructions_text"
-            android:textSize="15sp" />
+            android:textColor="#3E3E3E"
+            android:textSize="16sp" />
 
     </LinearLayout>
 

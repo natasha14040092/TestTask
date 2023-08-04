@@ -7,6 +7,11 @@
     <string name="repeat_password_text">Повторите пароль</string>
     <string name="b_sign_up_text">Регистрация</string>
 
+    <string name="name_text_hint">Введите имя…</string>
+    <string name="surname_text_hint">Введите фамилию…</string>
+    <string name="birthdate_text_hint">Выберите дату рождения…</string>
+    <string name="password_text_hint">Введите пароль…</string>
+
     <string name="error_message_name_short">Поле должно содержать не менее 2 букв</string>
     <string name="error_message_name_contains_special_symbol">Допустимы только буквы</string>
     <string name="error_message_password_short">Длина пароля меньше 8 символов</string>

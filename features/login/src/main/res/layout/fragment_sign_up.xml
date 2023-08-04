@@ -8,184 +8,137 @@
     tools:context=".ui.SignUpFragment">
 
     <ScrollView
-        android:id="@+id/svSignUp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
+        android:foregroundGravity="center"
         android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        >
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
-            android:id="@+id/llUsersInfoSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/layout_bg"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tvTitleSignUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
                 android:layout_gravity="center"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="10dp"
                 android:fontFamily="@font/montserrat_medium"
                 android:text="@string/sign_up_title_text"
-                android:textColor="@color/black_text_700"
+                android:textColor="@color/black_light"
                 android:textSize="27sp" />
 
             <TextView
-                android:id="@+id/tvNameSignUp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                style="@style/CustomTextViewStyle"
                 android:layout_marginStart="@dimen/fields_margin_start_end"
+                android:layout_marginTop="30dp"
                 android:fontFamily="@font/montserrat"
-                android:text="@string/name_text"
-                android:textColor="@color/black_text_700"
-                android:textSize="@dimen/tv_text_size_sign_up" />
+                android:text="@string/name_text" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/wNameField"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_inside_blocks"
+                style="@style/CustomWidgetTextInputLayout"
                 android:layout_marginStart="@dimen/fields_margin_start_end"
-                android:layout_marginEnd="@dimen/fields_margin_start_end"
-                app:boxBackgroundColor="#00FFFFFF"
-                app:errorEnabled="true">
+                android:layout_marginTop="@dimen/space_inside_blocks"
+                android:layout_marginEnd="@dimen/fields_margin_start_end">
 
                 <EditText
                     android:id="@+id/etNameSignUp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/CustomEditTextStyle"
                     android:autofillHints="personGivenName"
-                    android:ems="10"
-                    android:fontFamily="@font/montserrat"
+                    android:hint="@string/name_text_hint"
                     android:imeOptions="actionNext"
-                    android:inputType="textPersonName"
-                    android:minHeight="48dp"
-                    android:textColorHint="#757575" />
+                    android:inputType="textPersonName" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/tvSurnameSignUp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_between_blocks"
+                style="@style/CustomTextViewStyle"
                 android:layout_marginStart="@dimen/fields_margin_start_end"
-                android:fontFamily="@font/montserrat"
-                android:text="@string/surname_text"
-                android:textColor="@color/black_text_700"
-                android:textSize="@dimen/tv_text_size_sign_up" />
+                android:layout_marginTop="@dimen/space_between_blocks"
+                android:text="@string/surname_text" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/wSurnameField"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_inside_blocks"
+                style="@style/CustomWidgetTextInputLayout"
                 android:layout_marginStart="@dimen/fields_margin_start_end"
-                android:layout_marginEnd="@dimen/fields_margin_start_end"
-                app:boxBackgroundColor="#00FFFFFF"
-                app:errorEnabled="true">
+                android:layout_marginTop="@dimen/space_inside_blocks"
+                android:layout_marginEnd="@dimen/fields_margin_start_end">
 
                 <EditText
                     android:id="@+id/etSurnameSignUp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/CustomEditTextStyle"
                     android:autofillHints="personFamilyName"
-                    android:ems="10"
-                    android:fontFamily="@font/montserrat"
+                    android:hint="@string/surname_text_hint"
                     android:imeOptions="actionDone"
-                    android:inputType="textPersonName"
-                    android:minHeight="48dp"
-                    android:textColorHint="#757575" />
+                    android:inputType="textPersonName" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
             <TextView
-                android:id="@+id/tvBirthdateSignUp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_between_blocks"
+                style="@style/CustomTextViewStyle"
                 android:layout_marginStart="@dimen/fields_margin_start_end"
-                android:fontFamily="@font/montserrat"
-                android:text="@string/birthdate_text"
-                android:textColor="@color/black_text_700"
-                android:textSize="@dimen/tv_text_size_sign_up" />
+                android:layout_marginTop="@dimen/space_between_blocks"
+                android:text="@string/birthdate_text" />
 
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/wBirthdateField"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:boxBackgroundColor="#00FFFFFF"
-                android:layout_marginTop="@dimen/space_inside_blocks"
+                style="@style/CustomWidgetTextInputLayout"
                 android:layout_marginStart="@dimen/fields_margin_start_end"
-                android:layout_marginEnd="@dimen/fields_margin_start_end"
-                app:errorEnabled="true">
+                android:layout_marginTop="@dimen/space_inside_blocks"
+                android:layout_marginEnd="@dimen/fields_margin_start_end">
 
                 <EditText
                     android:id="@+id/etBirthdatePickerSignUp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:autofillHints="personFamilyName"
+                    style="@style/CustomEditTextStyle"
                     android:clickable="true"
-                    android:ems="10"
                     android:focusable="false"
-                    android:fontFamily="@font/montserrat"
+                    android:hint="@string/birthdate_text_hint"
                     android:imeOptions="actionNext"
-                    android:inputType="textPersonName"
-                    android:minHeight="48dp"
-                    android:textColorHint="#757575" />
+                    android:inputType="textPersonName" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/tvPasswordSignUp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_between_blocks"
+                style="@style/CustomTextViewStyle"
                 android:layout_marginStart="@dimen/fields_margin_start_end"
-                android:fontFamily="@font/montserrat"
-                android:text="@string/password_text"
-                android:textColor="@color/black_text_700"
-                android:textSize="@dimen/tv_text_size_sign_up" />
+                android:layout_marginTop="@dimen/space_between_blocks"
+                android:text="@string/password_text" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/space_inside_blocks"
                 android:layout_marginStart="@dimen/fields_margin_start_end"
+                android:layout_marginTop="@dimen/space_inside_blocks"
                 android:layout_marginEnd="@dimen/fields_margin_start_end"
                 android:orientation="horizontal">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/wPasswordField"
+                    style="@style/CustomWidgetTextInputLayout"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:boxBackgroundColor="#00FFFFFF"
-                    app:errorEnabled="true"
-                    >
+                    android:layout_weight="1">
 
                     <EditText
                         android:id="@+id/etPasswordSignUp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        style="@style/CustomEditTextStyle"
                         android:autofillHints="password"
-                        android:ems="10"
-                        android:fontFamily="@font/montserrat"
+                        android:hint="@string/password_text_hint"
                         android:imeOptions="actionDone"
-                        android:inputType="textPassword"
-                        android:minHeight="48dp"
-                        android:textColorHint="#757575" />
+                        android:inputType="textPassword" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -201,43 +154,32 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/tvRepeatPasswordSignUp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_between_blocks"
+                style="@style/CustomTextViewStyle"
                 android:layout_marginStart="@dimen/fields_margin_start_end"
-                android:fontFamily="@font/montserrat"
-                android:text="@string/repeat_password_text"
-                android:textColor="@color/black_text_700"
-                android:textSize="@dimen/tv_text_size_sign_up" />
+                android:layout_marginTop="@dimen/space_between_blocks"
+                android:text="@string/repeat_password_text" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/space_inside_blocks"
                 android:layout_marginStart="@dimen/fields_margin_start_end"
+                android:layout_marginTop="@dimen/space_inside_blocks"
                 android:layout_marginEnd="@dimen/fields_margin_start_end"
                 android:orientation="horizontal">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/wRepeatPasswordField"
+                    style="@style/CustomWidgetTextInputLayout"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:boxBackgroundColor="#00FFFFFF"
-                    app:errorEnabled="true">
+                    android:layout_weight="1">
 
                     <EditText
                         android:id="@+id/etRepeatPasswordSignUp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        style="@style/CustomEditTextStyle"
                         android:autofillHints="password"
-                        android:ems="10"
-                        android:fontFamily="@font/montserrat"
+                        android:hint="@string/password_text_hint"
                         android:imeOptions="actionDone"
-                        android:inputType="textPassword"
-                        android:minHeight="48dp"
-                        android:textColorHint="#757575" />
+                        android:inputType="textPassword" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -261,7 +203,7 @@
                 android:layout_gravity="center"
                 android:layout_marginVertical="15dp"
                 android:layout_marginTop="15dp"
-                android:backgroundTint="@color/unavailable_button"
+                android:backgroundTint="@color/gray"
                 android:clickable="false"
                 android:fontFamily="@font/montserrat"
                 android:text="@string/b_sign_up_text"
@@ -271,8 +213,7 @@
                 app:icon="@drawable/ic_right_arrow"
                 app:iconGravity="end"
                 app:iconPadding="7dp"
-                app:iconSize="15dp"
-                app:rippleColor="@color/available_button" />
+                app:iconSize="15dp" />
 
         </LinearLayout>
     </ScrollView>

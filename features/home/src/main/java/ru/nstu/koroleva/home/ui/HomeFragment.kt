@@ -1,5 +1,6 @@
 package ru.nstu.koroleva.home.ui
 
+import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +20,7 @@ import ru.nstu.koroleva.home.presentation.HomeViewModelFactory
 import ru.nstu.koroleva.n.home.R
 import ru.nstu.koroleva.n.home.databinding.FragmentHomeBinding
 import ru.nstu.koroleva.n.preferences.UserSharedPreferencesProvider
+import ru.nstu.koroleva.n.resources.ui.setBackgroundAnimation
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -30,6 +32,7 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        setBackgroundAnimation(binding.root.background as AnimationDrawable)
         return binding.root
     }
 

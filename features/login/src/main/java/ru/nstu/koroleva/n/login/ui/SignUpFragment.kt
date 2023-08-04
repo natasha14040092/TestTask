@@ -151,14 +151,14 @@ class SignUpFragment : Fragment() {
                 with(binding) {
                     bSignUp.isClickable = true
                     bSignUp.backgroundTintList =
-                        requireContext().getColorStateList(ru.nstu.koroleva.n.resources.R.color.available_button)
+                        requireContext().getColorStateList(ru.nstu.koroleva.n.resources.R.color.pink)
                 }
             }
             false -> {
                 with(binding) {
                     bSignUp.isClickable = false
                     bSignUp.backgroundTintList =
-                        requireContext().getColorStateList(ru.nstu.koroleva.n.resources.R.color.unavailable_button)
+                        requireContext().getColorStateList(ru.nstu.koroleva.n.resources.R.color.gray)
                 }
             }
         }
