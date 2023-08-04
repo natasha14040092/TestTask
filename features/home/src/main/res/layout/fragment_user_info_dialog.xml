@@ -17,6 +17,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
+        <TextView
+            style="@style/CustomTextViewStyle"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:lineSpacingExtra="5sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/greetings_dialog" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/wNameField"
             style="@style/CustomWidgetTextInputLayout"

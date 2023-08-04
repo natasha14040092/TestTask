@@ -11,4 +11,5 @@
     <string name="error_message_name_short">Поле должно содержать не менее 2 букв</string>
     <string name="error_message_name_contains_special_symbol">Допустимы только буквы</string>
     <string name="error_message_date_interval_error">Дата рождения не может быть позже сегодняшнего дня</string>
+    <string name="greetings_dialog">Спасибо, что установили наше приложение! \nЗдесь вы можете изменить информацию о себе.</string>
 </resources>
